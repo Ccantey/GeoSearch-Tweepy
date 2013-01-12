@@ -1,6 +1,7 @@
-
 # Tweepy module written by Josh Roselin, documentation at https://github.com/tweepy/tweepy
 # MySQLdb module written by Andy Dustman, documentation at http://mysql-python.sourceforge.net/MySQLdb.html
+# Geo-Crawler written by Chris Cantey, MS candidate, GIS/Cartography, University of Wisconsin, https://mywebspace.wisc.edu/ccantey/web/
+# MwSQLdb schema written great assistance by Steve Hemmy, UW-Madison DoIT
 
 
 from tweepy.streaming import StreamListener
