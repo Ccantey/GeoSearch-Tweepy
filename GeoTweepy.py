@@ -27,7 +27,6 @@ db.set_character_set('utf8')
 Coords = dict()
 Place = dict()
 PlaceCoords = dict()
-ReTweets = dict()
 XY = []
 curr=db.cursor()
 
@@ -45,6 +44,8 @@ class StdOutListener(StreamListener):
                                     #print "X: ", XY[0]
                                     #print "Y: ", XY[1]
                                 except:
+                                    #Often times users opt into 'place' which is neighborhood size polygon
+                                    #Calculate center of polygon
                                     Place.update(status.place)
                                     PlaceCoords.update(Place['bounding_box'])
                                     Box = PlaceCoords['coordinates'][0]
@@ -52,7 +53,7 @@ class StdOutListener(StreamListener):
                                     #print "X: ", XY[0]
                                     #print "Y: ", XY[1] 
                                     pass
-                                # Comment out next 4 lines to avoid MySQLdb and Uncomment print statements to simply read stream
+                                # Comment out next 4 lines to avoid MySQLdb to simply read stream at console
                                 curr.execute("""INSERT INTO TwitterFeed2 (UserID, Date, X, Y, Text) VALUES
                                     (%s, %s, %s, %s, %s);""",
                                     (status.id_str,status.created_at,XY[0],XY[1],text))
@@ -68,7 +69,7 @@ def main():
     while True:
         try:
             # Call tweepy's userstream method 
-            stream.filter(locations=[-125,25,-65,48], async=False)##These coordinates are approximate North and Western hemosphere [long1(-180),lat1(0),long2(-60),lat2(72](generally a bounding box around USA)
+            stream.filter(locations=[-125,25,-65,48], async=False)##These coordinates are approximate bounding box around USA
             #stream.filter(track=['obama'])## This will feed the stream all mentions of 'keyword'       
             break
         except Exception, e:
