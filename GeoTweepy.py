@@ -19,8 +19,8 @@ consumer_secret="insert your secret"
 access_token="insert your token"
 access_token_secret="insert your secret"
 
-# Create your MySQL schema and connect to database
-db=MySQLdb.connect(host='..', user='..', passwd='..', db='..') 
+# Create your MySQL schema and connect to database, ex: mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpwd');
+db=MySQLdb.connect(host='localhost', user='root', passwd='newpwd', db='twitter') 
 db.set_character_set('utf8')
 
 Coords = dict()
