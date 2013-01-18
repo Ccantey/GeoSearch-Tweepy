@@ -12,7 +12,7 @@ import MySQLdb
 import random
 
 # Go to http://dev.twitter.com and create an app. 
-# The consumer key and secret along as well as the access_token and secret will be generated for you after you register with Twitter Developers
+# The consumer key and secret as well as the access_token and secret will be generated for you after you register with Twitter Developers
 consumer_key="insert your key"
 consumer_secret="insert your secret"
 
