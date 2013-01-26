@@ -64,7 +64,7 @@ def main():
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l, timeout=30.0)
-    #Only tracks locations OR tracks, NOT tracks with locations
+    #Only records 'locations' OR 'tracks', NOT 'tracks (keywords) with locations'
     while True:
         try:
             # Call tweepy's userstream method 
