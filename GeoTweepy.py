@@ -1,6 +1,6 @@
 # Tweepy module written by Josh Roselin, documentation at https://github.com/tweepy/tweepy
 # MySQLdb module written by Andy Dustman, documentation at http://mysql-python.sourceforge.net/MySQLdb.html
-# GeoSearch crawler written by Chris Cantey, MS candidate, GIS/Cartography, University of Wisconsin, https://mywebspace.wisc.edu/ccantey/web/
+# GeoSearch crawler written by Chris Cantey, MS GIS/Cartography, University of Wisconsin, https://geo-odyssey.com
 # MwSQLdb schema written with great assistance from Steve Hemmy, UW-Madison DoIT
 
 
