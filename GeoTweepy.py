@@ -24,10 +24,13 @@ db=MySQLdb.connect(host='localhost', user='root', passwd='newpwd', db='twitter')
 db.set_character_set('utf8')
 
 Coords = dict()
-Place = dict()
-PlaceCoords = dict()
 XY = []
 curr=db.cursor()
+
+#per request, write output to csv, rather than mysql. Be aware of limited rows to csv. The streaming API will return millions of rows per day.
+#csvfile = open('geopy_results.csv','wb')
+#csvwriter = csv.writer(csvfile)
+#csvwriter.writerow(['UserID', 'Date', 'Lat', 'Long', 'Text'])
 
 class StdOutListener(StreamListener):
                 """ A listener handles tweets that are the received from the stream. 
@@ -51,10 +54,13 @@ class StdOutListener(StreamListener):
                                     #print "Y: ", XY[1] 
                                     pass
                                 # Comment out next 4 lines to avoid MySQLdb to simply read stream at console
-                                curr.execute("""INSERT INTO TwitterFeed2 (UserID, Date, X, Y, Text) VALUES
+                                curr.execute("""INSERT INTO TwitterFeed2 (UserID, Date, Lat, Lng, Text) VALUES
                                     (%s, %s, %s, %s, %s);""",
-                                    (status.id_str,status.created_at,XY[0],XY[1],text))
+                                    (status.id_str,status.created_at,XY[1],XY[0],text))
                                 db.commit()
+                                
+                                #Alternatively write to CSV. CSV's. limited
+                                #csvwriter.writerow([unicode(status.id_str).encode("utf-8"),unicode(status.created_at).encode("utf-8"),XY[1],XY[0],unicode(status.text).encode("utf-8")])
                       
 
 def main():
