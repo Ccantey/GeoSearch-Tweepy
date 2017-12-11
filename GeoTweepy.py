@@ -45,9 +45,7 @@ class StdOutListener(StreamListener):
                                 except:
                                     #Often times users opt into 'place' which is neighborhood size polygon
                                     #Calculate center of polygon
-                                    Place.update(status.place)
-                                    PlaceCoords.update(Place['bounding_box'])
-                                    Box = PlaceCoords['coordinates'][0]
+                                    Box = status.place.bounding_box.coordinates[0]                                    
                                     XY = [(Box[0][0] + Box[2][0])/2, (Box[0][1] + Box[2][1])/2]
                                     #print "X: ", XY[0]
                                     #print "Y: ", XY[1] 
