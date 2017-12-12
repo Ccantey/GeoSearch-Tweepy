@@ -9,6 +9,7 @@ from tweepy import OAuthHandler
 from tweepy import Stream
 import time
 import MySQLdb
+import csv
 import random
 
 # Go to http://dev.twitter.com and create an app. 
