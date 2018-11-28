@@ -74,7 +74,7 @@ def main():
         try:
             # Call tweepy's userstream method 
             # Use either locations or track, not both
-            stream.filter(locations=[-125,25,-65,48], async=False)##These coordinates are approximate bounding box around USA
+            stream.filter(locations=[-125,25,-65,48])##These coordinates are approximate bounding box around USA
             #stream.filter(track=['obama'])## This will feed the stream all mentions of 'keyword' 
             break
         except Exception, e:
